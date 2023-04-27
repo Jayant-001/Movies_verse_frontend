@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../api/useFetch";
 
@@ -11,11 +11,6 @@ const Hero = () => {
             navigate(`search/${query}`);
         }
     };
-
-    // const { data, error, loading } = useFetch("/movie/popular");
-
-    // if (data) console.log(data);
-    // if (error) console.log(error.message);
 
     const handleSearch = () => {};
 

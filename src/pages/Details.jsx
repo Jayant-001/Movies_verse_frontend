@@ -6,6 +6,7 @@ import Recommendations from "../components/Recommendations";
 import axios from "axios";
 import { getCookie } from "../cookie/cookie";
 import { InfinitySpin } from "react-loader-spinner";
+import toast, { Toaster } from 'react-hot-toast';
 
 const getEndPoints = (location) => {
     const urlPath = location.pathname.split("/");
@@ -62,8 +63,12 @@ const Details = () => {
                     mediaId,
                 }
             );
+            if(!isAuthenticated) 
+                toast.success("Added to watchlist.")
+            else
+                toast.success("Removed from watchlist.")
         } else {
-            alert("Login to save movies");
+            toast.error("Login is required", {icon: '🥱'})
         }
         // to update add watchlist button
         setClicked(!clicked);
@@ -78,6 +83,7 @@ const Details = () => {
             )}
             {!loading && (
                 <div className="flex flex-col px-14 py-10 space-y-6 h-screen mt-10">
+                    <Toaster position="top-center" />
                     {/* Movie details */}
                     <div className="flex space-x-5">
                         <img

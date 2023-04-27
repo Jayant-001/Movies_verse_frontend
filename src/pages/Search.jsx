@@ -69,7 +69,7 @@ const Search = () => {
                 </div>
             )}
             {!loading && (
-                <div className="mt-14 px-5">
+                <div className="my-14 px-5">
                     {data?.results?.length > 0 ? (
                         <>
                             <h1 className="my-5 text-2xl">

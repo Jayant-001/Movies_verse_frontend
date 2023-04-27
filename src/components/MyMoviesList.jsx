@@ -39,7 +39,7 @@ const MyMoviesList = ({ element }) => {
     }, [clickedMovie]);
 
     return (
-        <div className="mt-10">
+        <div className="mt-1">
             {movie && data !== undefined && data !== null ? (
                 <MovieCard
                     movie={data}

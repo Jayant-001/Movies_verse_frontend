@@ -41,20 +41,32 @@ function App() {
             <div className="text-slate-100 h-screen">
                 <NavBar />
                 <div className="h-screen mt-12">
-
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route
-                        path="/detail/:mediaType/:id"
-                        element={<Details />}
-                    />
-                    <Route path="/search/:query" element={<Search />} />
-                    <Route path="/explore/:mediaType" element={<Explore />} />
-                    <Route path="/myfavourite" element={<MyMovies />} />
-                    <Route path="/login" element={<NewUser />} />
-                    <Route path="/authenticate" element={<Auth />} />
-                    <Route path="*" element={<PageNotFound />} />
-                </Routes>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route
+                            path="/detail/:mediaType/:id"
+                            element={<Details />}
+                        />
+                        <Route path="/search/:query" element={<Search />} />
+                        <Route
+                            path="/explore/:mediaType"
+                            element={<Explore />}
+                        />
+                        <Route path="/myfavourite" element={<MyMovies />} />
+                        <Route path="/login" element={<NewUser />} />
+                        <Route path="/authenticate" element={<Auth />} />
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
+                </div>
+                <div className="fixed bg-slate-500 bottom-0 flex items-center justify-center w-full py-1 border-t-0 border-white">
+                    <h1>
+                        Designed and Developed by{" "}
+                        <a href="https://www.linkedin.com/in/jayant-cse/" target="_blank"> 
+                            <span className="underline cursor-pointer text-slate-300 tracking-wider">
+                                JAYANT
+                            </span>
+                        </a>
+                    </h1>
                 </div>
             </div>
         </BrowserRouter>

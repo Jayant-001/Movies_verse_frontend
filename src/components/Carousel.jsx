@@ -24,17 +24,9 @@ const Carousel = ({ movies, loading, type }) => {
     }, [type]);
 
     useEffect(() => {
-        // console.log(clickedMovie)
         if (clickedMovie.id !== null) {
             navigate(`/detail/${clickedMovie.media_type}/${clickedMovie.id}`);
         }
-        // if(clickedMovie.id !== null) {
-
-        //         setClickedMovie({
-        //             id: null,
-        //             media_type: null,
-        //         })
-        // }
     }, [clickedMovie]);
 
     return (

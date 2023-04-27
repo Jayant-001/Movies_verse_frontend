@@ -4,6 +4,7 @@ import { fetchFromAPI } from "../api/api";
 import { InfinitySpin } from "react-loader-spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 import MovieCard from "../components/MovieCard";
+import toast, { Toaster } from "react-hot-toast";
 
 const Explore = () => {
     const { mediaType } = useParams();
@@ -15,6 +16,7 @@ const Explore = () => {
         id: null,
         media_type: mediaType,
     });
+
     const fetchInitialData = () => {
         setLoading(true);
         fetchFromAPI(`/${mediaType}/top_rated`)
@@ -24,12 +26,11 @@ const Explore = () => {
                 setLoading(false);
             })
             .catch(() => {
-                alert("Server error");
+                toast.error("Server error");
             });
     };
 
     const fetchNextPage = () => {
-        // setLoading(true);
         fetchFromAPI(`/${mediaType}/top_rated?page=${page}`)
             .then((res) => {
                 if (data?.results) {
@@ -41,10 +42,10 @@ const Explore = () => {
                     setData(res.data);
                 }
                 setPage((prev) => prev + 1);
-                // setLoading
+   
             })
             .catch(() => {
-                alert("Server error");
+                toast.error("Server error");
             });
     };
 
@@ -61,6 +62,7 @@ const Explore = () => {
 
     return (
         <div className="">
+            <Toaster position="top-center" />
             {loading && (
                 <div className="w-screen h-screen flex items-center justify-center">
                     <InfinitySpin width="200" color="#4fa94d" />
